@@ -8,9 +8,18 @@ public class DBConnection {
 
     private static final String URL = "jdbc:mysql://localhost:3306/SMS";
     private static final String USER = "root";
-    private static final String PASSWORD = "root"; // or ""
+    private static final String PASSWORD = "root";
+
+    private static Connection connection;
+
+    private DBConnection() {
+    }
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+        if (connection == null || connection.isClosed()) {
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+        }
+        return connection;
     }
+
 }

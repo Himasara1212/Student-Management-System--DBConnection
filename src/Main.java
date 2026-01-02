@@ -53,7 +53,7 @@ public class Main {
                 case 1 -> studentMenu();
                 case 2 -> teacherMenu();
                 case 3 -> subjectMenu();
-                case 4 -> { System.out.println("Exiting..."); return; }
+                case 4 -> { System.out.println("Exit.."); return; }
                 default -> System.out.println("Invalid Choice");
             }
         }
